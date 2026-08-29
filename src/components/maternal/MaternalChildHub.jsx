@@ -4,11 +4,8 @@ import {
   Heart,
   Baby,
   Scale,
-  Calendar,
   Sparkles,
   ShieldCheck,
-  Send,
-  Volume2
 } from 'lucide-react';
 import { useHealthData } from '../../context/HealthDataContext';
 import { useLanguage } from '../../context/LanguageContext';
@@ -39,13 +36,12 @@ export const MaternalChildHub = () => {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-300">
-      
-      {/* Hero Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-900 via-emerald-800 to-slate-900 text-white p-6 sm:p-9 shadow-xl border border-teal-700/50">
-        <div className="relative z-10 max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-200 text-xs font-bold border border-emerald-400/30">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
-            <span>Janani & Shishu Suraksha • National Universal Immunization (UIP)</span>
+      {/* Maternal & Child Hero Banner — aligned visually with Epidemic Radar */}
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-rose-950 to-slate-900 text-white p-6 sm:p-9 shadow-xl border border-rose-900/50">
+        <div className="relative z-10 max-w-4xl space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 text-rose-200 text-xs font-bold border border-rose-400/30">
+            <Sparkles className="w-3.5 h-3.5 text-rose-300" />
+            <span>Janani &amp; Shishu Suraksha • National Universal Immunization (UIP)</span>
           </div>
 
           <div className="flex items-center gap-3">
@@ -55,11 +51,11 @@ export const MaternalChildHub = () => {
             <AudioVoiceButton
               text={`${t('maternalHeader')}. ${t('maternalSubheader')}. Track prenatal visits for mothers and timely vaccination milestones for infants.`}
               size="lg"
-              className="bg-white/20 text-white border-white/30"
+              className="bg-white/20 text-white border-white/30 hover:bg-white/30"
             />
           </div>
 
-          <p className="text-xs sm:text-base text-emerald-100/90 leading-relaxed font-medium">
+          <p className="text-xs sm:text-base text-rose-100/90 leading-relaxed font-medium max-w-3xl">
             {t(
               'maternalSubheader',
               'Sends automated reminders for vaccines and pregnancy checkups so mothers and babies don’t miss life-saving care.'
@@ -70,10 +66,10 @@ export const MaternalChildHub = () => {
           <div className="pt-1 flex flex-wrap items-center gap-2 text-xs">
             <button
               onClick={() => setActiveSubTab('mothers')}
-              className={`px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all text-xs ${
+              className={`px-3 py-2 rounded-xl font-bold flex items-center gap-1.5 transition-all text-xs border ${
                 activeSubTab === 'mothers'
-                  ? 'bg-white text-emerald-950 shadow-md'
-                  : 'bg-emerald-950/60 text-emerald-100 hover:bg-emerald-900 border border-emerald-600/40'
+                  ? 'bg-white text-rose-950 border-white shadow-md'
+                  : 'bg-rose-950/80 text-rose-100 hover:bg-rose-900 border-rose-500/50'
               }`}
             >
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
@@ -82,22 +78,22 @@ export const MaternalChildHub = () => {
 
             <button
               onClick={() => setActiveSubTab('children')}
-              className={`px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all text-xs ${
+              className={`px-3 py-2 rounded-xl font-bold flex items-center gap-1.5 transition-all text-xs border ${
                 activeSubTab === 'children'
-                  ? 'bg-white text-emerald-950 shadow-md'
-                  : 'bg-emerald-950/60 text-emerald-100 hover:bg-emerald-900 border border-emerald-600/40'
+                  ? 'bg-white text-rose-950 border-white shadow-md'
+                  : 'bg-rose-950/80 text-rose-100 hover:bg-rose-900 border-rose-500/50'
               }`}
             >
-              <Baby className="w-3.5 h-3.5 text-sky-400" />
+              <Baby className="w-3.5 h-3.5 text-sky-300" />
               <span>{t('tabChildren', 'Child Immunization (UIP)')} ({totalChildren})</span>
             </button>
 
             <button
               onClick={() => setActiveSubTab('growth')}
-              className={`px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all text-xs ${
+              className={`px-3 py-2 rounded-xl font-bold flex items-center gap-1.5 transition-all text-xs border ${
                 activeSubTab === 'growth'
-                  ? 'bg-white text-emerald-950 shadow-md'
-                  : 'bg-emerald-950/60 text-emerald-100 hover:bg-emerald-900 border border-emerald-600/40'
+                  ? 'bg-white text-rose-950 border-white shadow-md'
+                  : 'bg-rose-950/80 text-rose-100 hover:bg-rose-900 border-rose-500/50'
               }`}
             >
               <Scale className="w-3.5 h-3.5 text-amber-300" />
@@ -106,8 +102,13 @@ export const MaternalChildHub = () => {
           </div>
         </div>
 
-        {/* Decorative background circle */}
-        <div className="absolute right-0 bottom-0 -mb-10 -mr-10 w-72 h-72 bg-teal-400/10 rounded-full blur-3xl pointer-events-none"></div>
+        {/* Decorative background rings — subtle, like the Epidemic Radar */}
+        <div className="absolute -right-16 -top-16 w-80 h-80 rounded-full border-4 border-rose-500/20 flex items-center justify-center pointer-events-none opacity-40">
+          <div className="w-56 h-56 rounded-full border-2 border-rose-500/30 flex items-center justify-center">
+            <div className="w-32 h-32 rounded-full border border-rose-500/40"></div>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-rose-500/15 to-transparent rounded-full"></div>
+        </div>
       </div>
 
       {/* Metric Stat Cards */}
